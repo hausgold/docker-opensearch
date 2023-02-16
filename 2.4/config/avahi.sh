@@ -36,6 +36,7 @@ if [ -n "${MDNS_HOSTNAME}" ]; then
   sed \
     -e "s/.*\(host-name=\).*/\1${HOST_PART}/g" \
     -e "s/.*\(domain-name=\).*/\1${DOMAIN_PART}/g" \
+    -e "s/.*\(enable-dbus=\).*/\1yes/g" \
     -i /etc/avahi/avahi-daemon.conf
 
   echo "Configured mDNS hostname to ${MDNS_HOSTNAME}"

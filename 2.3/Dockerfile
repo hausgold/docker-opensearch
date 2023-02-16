@@ -20,9 +20,9 @@ RUN amazon-linux-extras install epel -y && \
   yum install -y \
     dbus avahi avahi-tools nss-mdns haproxy supervisor
 
-# Copy avahi.sh
-COPY config/avahi.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/avahi.sh
+# Copy custom scripts
+COPY config/*.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/*
 
 # Configure haproxy
 COPY config/haproxy.conf /etc/haproxy/haproxy.cfg
