@@ -1,5 +1,5 @@
 FROM opensearchproject/opensearch:1.3.6
-MAINTAINER Hermann Mayer "hermann.mayer@hausgold.de"
+LABEL org.opencontainers.image.authors="containers@hausgold.de"
 # See: https://bit.ly/3gbAmcR
 
 # You can change this environment variable on run's with -e
@@ -31,4 +31,4 @@ COPY config/haproxy.conf /etc/haproxy/haproxy.cfg
 COPY config/supervisor/* /etc/supervisord.d/
 
 # Define the command to run per default
-CMD /usr/bin/supervisord -nc /etc/supervisord.conf
+CMD ["/usr/bin/supervisord", "-nc", "/etc/supervisord.conf"]
