@@ -47,31 +47,26 @@ compatibility.override_main_response_version='true'
 ## docker-compose usage example
 
 ```yaml
-opensearch:
-  image: hausgold/opensearch
-  environment:
-    # Mind the .local suffix
-    MDNS_HOSTNAME=opensearch.test.local
-    OPENSEARCH_JAVA_OPTS: -Xms96m -Xmx96m
-    discovery.type: single-node
-    compatibility.override_main_response_version: false
-  ports:
-    # The ports are just for you to know when configure your
-    # container links, on depended containers
-    - "9200"
-    - "9300"
-    - "9600"
-  ulimits:
-    # Due to systemd/pam RLIMIT_NOFILE settings (max int inside the
-    # container), the Java process seams to allocate huge limits which result
-    # in a +unable to allocate file descriptor table - out of memory+ error.
-    # Lowering this value fixes the issue for now.
-    #
-    # See: http://bit.ly/2U62A80
-    # See: http://bit.ly/2T2Izit
-    nofile:
-      soft: 100000
-      hard: 100000
+services:
+  opensearch:
+    image: hausgold/opensearch
+    environment:
+      # Mind the .local suffix
+      MDNS_HOSTNAME: opensearch.test.local
+      OPENSEARCH_JAVA_OPTS: -Xms128m -Xmx128m
+      discovery.type: single-node
+      compatibility.override_main_response_version: false
+    ulimits:
+      # Due to systemd/pam RLIMIT_NOFILE settings (max int inside the
+      # container), the Java process seams to allocate huge limits which result
+      # in a +unable to allocate file descriptor table - out of memory+ error.
+      # Lowering this value fixes the issue for now.
+      #
+      # See: http://bit.ly/2U62A80
+      # See: http://bit.ly/2T2Izit
+      nofile:
+        soft: 100000
+        hard: 100000
 ```
 
 ## Host configs
