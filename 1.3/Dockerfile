@@ -1,4 +1,4 @@
-FROM opensearchproject/opensearch:1.3.6
+FROM opensearchproject/opensearch:1.3.20
 LABEL org.opencontainers.image.authors="containers@hausgold.de"
 # See: https://bit.ly/3gbAmcR
 

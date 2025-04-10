@@ -55,7 +55,7 @@ services:
       MDNS_HOSTNAME: opensearch.test.local
       OPENSEARCH_JAVA_OPTS: -Xms128m -Xmx128m
       discovery.type: single-node
-      compatibility.override_main_response_version: false
+      compatibility.override_main_response_version: 'false'
     ulimits:
       # Due to systemd/pam RLIMIT_NOFILE settings (max int inside the
       # container), the Java process seams to allocate huge limits which result
