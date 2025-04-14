@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.authors="containers@hausgold.de"
 ENV MDNS_HOSTNAME=opensearch.local
 
 # Keep the settings low for default
-ENV OPENSEARCH_JAVA_OPTS='-Xms96m -Xmx96m'
+ENV OPENSEARCH_JAVA_OPTS='-Xms128m -Xmx128m'
 ENV discovery.type='single-node'
 ENV DISABLE_INSTALL_DEMO_CONFIG='true'
 ENV DISABLE_SECURITY_PLUGIN='true'
