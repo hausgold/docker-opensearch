@@ -8,6 +8,7 @@ ENV MDNS_HOSTNAME=opensearch.local
 # Keep the settings low for default
 ENV OPENSEARCH_JAVA_OPTS='-Xms256m -Xmx256m'
 ENV discovery.type='single-node'
+ENV cluster.routing.allocation.disk.threshold_enabled='false'
 ENV DISABLE_INSTALL_DEMO_CONFIG='true'
 ENV DISABLE_SECURITY_PLUGIN='true'
 
